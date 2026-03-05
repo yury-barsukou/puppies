@@ -19,6 +19,18 @@ body {
 .container {
     text-align: center;
     padding: 2rem;
+    max-width: 640px;
+}
+
+.hero-icon {
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-12px); }
 }
 
 h1 {
@@ -28,20 +40,42 @@ h1 {
 }
 
 .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #a8a8b3;
     margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
-#app {
+/* Puppy fact box */
+.fact-box {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    color: #16c79a;
-    letter-spacing: 0.05em;
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 12px;
+    padding: 1.2rem 1.8rem;
     margin-bottom: 2.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fact-box:hover {
+    border-color: rgba(233, 69, 96, 0.7);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.fact-label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #e94560;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.fact-box p {
+    font-size: 1rem;
+    color: #eee;
+    line-height: 1.6;
 }
 
 /* ── Fancy "Meet the Puppies" button ── */
