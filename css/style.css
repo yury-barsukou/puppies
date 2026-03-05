@@ -15,6 +15,7 @@ body {
     color: #eee;
 }
 
+/* ── Shared container ── */
 .container {
     text-align: center;
     padding: 2rem;
@@ -40,4 +41,194 @@ h1 {
     font-size: 1rem;
     color: #16c79a;
     letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+}
+
+/* ── Fancy "Meet the Puppies" button ── */
+.btn-puppies {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2.2rem;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #e94560 0%, #f5a623 100%);
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(233, 69, 96, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-puppies:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 30px rgba(233, 69, 96, 0.7);
+}
+
+.btn-puppies:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-icon {
+    font-size: 1.4rem;
+    animation: wag 1s infinite alternate ease-in-out;
+}
+
+@keyframes wag {
+    from { transform: rotate(-15deg); }
+    to   { transform: rotate(15deg); }
+}
+
+/* Shine sweep effect */
+.btn-shine {
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.35) 50%,
+        transparent 100%
+    );
+    animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+    0%   { left: -75%; }
+    60%  { left: 125%; }
+    100% { left: 125%; }
+}
+
+/* ── Puppies page ── */
+.container--puppies {
+    max-width: 1100px;
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+.puppies-title {
+    font-size: 2.5rem;
+}
+
+/* Gallery grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+@media (max-width: 700px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 440px) {
+    .gallery { grid-template-columns: 1fr; }
+}
+
+.puppy-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    animation: pop-in 0.4s ease both;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.puppy-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+}
+
+.puppy-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes pop-in {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Loading state */
+.loading {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+    color: #a8a8b3;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top-color: #e94560;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error {
+    grid-column: 1 / -1;
+    color: #e94560;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+/* Reload button */
+.btn-reload {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #16c79a, #0a8f6e);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(22, 199, 154, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.2rem;
+}
+
+.btn-reload:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 22px rgba(22, 199, 154, 0.6);
+}
+
+.btn-reload:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Back button */
+.btn-back {
+    display: inline-block;
+    padding: 0.65rem 1.6rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #a8a8b3;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    margin-left: 0.8rem;
+}
+
+.btn-back:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.07);
 }
